@@ -16,15 +16,22 @@ local function onRender(t)
     local playerHearts = player:GetHearts()
 	local playerBombs = player:GetNumBombs()
     local playerKeys = player:GetNumKeys()
-
+	
 	--returns the score
+	-- Adresse des Wertes, den du lesen möchtest
+	local address = "0x513A4300" -- Ersetze diese Adresse mit der Zieladresse
 
+	-- Lese den Wert von der Adresse und speichere ihn in einer Variablen
+	local value = readInteger(address) -- Für einen Ganzzahlwert (Integer)
+
+	-- Gib den Wert in der Konsole aus
+	print("Der Wert an Adresse " .. address .. " ist: " .. value)
+	
 	--positions
     print("Player position: ", playerPos.X, playerPos.Y)
     print("Hearts: ", playerHearts)
     print("Bombs: ", playerBombs)
 	print("Keys: ", playerKeys)
-    --print("score: ", ScoreSheet.GetTotalScore())
 
     --Enity 1 ist spieler
 	for _, entity in pairs(Isaac.GetRoomEntities()) do
